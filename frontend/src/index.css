@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #3B82F6;
+  --primary-dark: #2563EB;
+  --success-color: #10B981;
+  --danger-color: #EF4444;
+  --warning-color: #F59E0B;
+  --background-light: #F3F4F6;
+  --text-dark: #1F2937;
+  --text-light: #6B7280;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+
+.map-container {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    height: calc(100vh - 120px); /* Subtracting header and users panel height */
+    min-height: 600px; /* Ensures minimum height on larger screens */
+  }
+  
+  .leaflet-container {
+    height: 100% !important;
+    width: 100%;
+  }
+  
+  /* Make users panel more compact */
+  .users-panel {
+    background: white;
+    padding: 0.75rem;
+    border-top: 1px solid #E5E7EB;
+    height: 60px; /* Fixed height for users panel */
+    overflow-y: auto;
+  }
+  
+  /* Adjust header to be more compact */
+  .dashboard-header {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 0.75rem 1.5rem;
+    height: 60px; /* Fixed height for header */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Make the controls more compact and transparent when not hovered */
+  .map-controls {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .map-controls:hover {
+    background: rgba(255, 255, 255, 1);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .map-container {
+      height: calc(100vh - 140px);
+      min-height: 400px;
+    }
+  
+    .users-panel {
+      height: 80px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .map-container {
+      height: calc(100vh - 120px);
+      min-height: 800px;
+    }
+  }
